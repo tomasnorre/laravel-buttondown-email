@@ -13,29 +13,13 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $env = parse_ini_file(__DIR__ . '/../.env.ci');
-
-        $env = array_merge($env, $_ENV);
-
         $this->app['config']->set(
             'buttondown.api.key',
-            $env['BUTTONDOWN_KEY'],
+            $_ENV['BUTTONDOWN_KEY'],
         );
         $this->app['config']->set(
             'buttondown.api.url',
-            $env['BUTTONDOWN_URL'],
-        );
-        $this->app['config']->set(
-            'buttondown.api.timeout',
-            $env['BUTTONDOWN_TIMEOUT'],
-        );
-        $this->app['config']->set(
-            'buttondown.api.retry.times',
-            $env['BUTTONDOWN_RETRY_TIMES'],
-        );
-        $this->app['config']->set(
-            'buttondown.api.retry.milliseconds',
-            $env['BUTTONDOWN_RETRY_MILLISECONDS'],
+            'https://api.buttondown.email/v1',
         );
     }
 
