@@ -41,5 +41,9 @@ jobs:
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
       - name: Execute tests
-        run: BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }} ./vendor/bin/phpunit
+        run: vendor/bin/phpunit
+        with:
+          BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }}
+        env:
+          BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }}
 
