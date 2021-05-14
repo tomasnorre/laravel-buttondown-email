@@ -41,7 +41,7 @@ jobs:
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
       - name: Execute tests
-        run: BUTTONDOWN_KEY=${{ secrets.BUTTONDOWN_KEY }} ./vendor/bin/phpunit --coverage-clover coverage.xml
+        run: vendor/bin/phpunit --coverage-clover coverage.xml
         env:
           BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }}
 
