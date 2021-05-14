@@ -15,6 +15,8 @@ class TestCase extends Orchestra
 
         $env = parse_ini_file(__DIR__ . '/../.env.ci');
 
+        $env = array_merge($env, $_ENV);
+
         $this->app['config']->set(
             'buttondown.api.key',
             $env['BUTTONDOWN_KEY'],
